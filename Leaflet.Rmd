@@ -1,0 +1,19 @@
+Using required Packages
+library(leaflet)
+## Warning: package 'leaflet' was built under R version 3.4.4
+library(htmltools)
+## Warning: package 'htmltools' was built under R version 3.4.4
+Accessing the data from .csv text file
+From Kagle: Dataset about the best restaurants in the world. By Megh Mayur. Contains the list of The World’s 50 Best Restaurants for 2018 (https://www.kaggle.com/mmayur/the-worlds-50-best-restaurants)
+
+setwd("c:/users/MartaT/Documents/datasets/")
+datamap <- read.csv(file = "TheWorlds50BestRestaurants2018.csv", header = TRUE, sep = ",")
+Creating my data frame in order to manipulate the dataset like a table.
+library(leaflet)
+my_map<- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=51.4426108,lng=-0.2807924, popup="White Lodge") %>%
+  addMarkers(lat=51.4383976,lng=-0.2603218, popup="Stag Lodge Stables") %>%
+  addMarkers(lat=51.4447593,lng=-0.2795102, popup="Pen Ponds") %>%
+  addMarkers(lat=51.4327708,lng=-0.2786731, popup="Isabella Plantation")
+my_map
